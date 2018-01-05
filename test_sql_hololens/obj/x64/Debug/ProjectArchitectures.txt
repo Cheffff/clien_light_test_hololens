@@ -1,0 +1,1 @@
+C:\Users\Nabil\Source\Repos\test_sql_hololens\test_sql_hololens\test_sql_hololens.csproj;x64
