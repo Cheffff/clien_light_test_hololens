@@ -6343,11 +6343,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nabil\\Source\\Repos\\test_sql_hololens\\test_sql_hololens\\test_sql_hololens.csproj",
+      "projectUniqueName": "C:\\Users\\Nabil\\Desktop\\clien_light_test_hololens\\test_sql_hololens\\test_sql_hololens.csproj",
       "projectName": "test_sql_hololens",
-      "projectPath": "C:\\Users\\Nabil\\Source\\Repos\\test_sql_hololens\\test_sql_hololens\\test_sql_hololens.csproj",
+      "projectPath": "C:\\Users\\Nabil\\Desktop\\clien_light_test_hololens\\test_sql_hololens\\test_sql_hololens.csproj",
       "packagesPath": "C:\\Users\\Nabil\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nabil\\Source\\Repos\\test_sql_hololens\\test_sql_hololens\\obj\\",
+      "outputPath": "C:\\Users\\Nabil\\Desktop\\clien_light_test_hololens\\test_sql_hololens\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [

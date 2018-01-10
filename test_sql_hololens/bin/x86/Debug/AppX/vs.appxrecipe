@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>74485ba4-ad20-4485-a542-54df590f916c</PackageIdentityName>
     <PackageIdentityPublisher>CN=Nabil</PackageIdentityPublisher>
-    <IntermediateOutputPath>c:\users\nabil\Source\Repos\test_sql_hololens\test_sql_hololens\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>c:\users\nabil\Source\Repos\test_sql_hololens\test_sql_hololens\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\bin\x86\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>D698F35904F9BBE37590475B217A15D50AF668AAE425BE7C8885FF2FB87B1803</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>74485ba4-ad20-4485-a542-54df590f916c_1.0.0.0_x86__ehn7b1343kq3w</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>74485ba4-ad20-4485-a542-54df590f916c_ehn7b1343kq3w!App</RegisteredUserModeAppID>
@@ -28,16 +28,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="c:\users\nabil\Source\Repos\test_sql_hololens\test_sql_hololens\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-01-05T13:54:04.171</Modified>
+      <Modified>2018-01-10T00:36:57.222</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="c:\users\nabil\Source\Repos\test_sql_hololens\test_sql_hololens\bin\x86\Debug\test_sql_hololens.exe">
+    <AppxPackagedFile Include="C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\bin\x86\Debug\test_sql_hololens.exe">
       <PackagePath>entrypoint\test_sql_hololens.exe</PackagePath>
-      <Modified>2018-01-05T13:54:00.300</Modified>
+      <Modified>2018-01-10T00:36:55.930</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Nabil\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.0.1\runtimes\win10-x86\nativeassets\uap10.0.15138\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
@@ -695,64 +695,68 @@
       <PackagePath>netstandard.dll</PackagePath>
       <Modified>2017-09-30T18:26:12.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Program Files %28x86%29\MySQL\MySQL Connector Net 6.9.9\Assemblies\MySql.Data.RT.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\MySQL\MySQL Connector Net 6.9.9\Assemblies\MySql.Data.RT.dll">
       <PackagePath>MySql.Data.RT.dll</PackagePath>
       <Modified>2013-12-17T23:13:21.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\nabil\Source\Repos\test_sql_hololens\test_sql_hololens\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2018-01-05T13:34:30.782</Modified>
+    <AppxPackagedFile Include="C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\Assets\logo_eip.png">
+      <PackagePath>Assets\logo_eip.png</PackagePath>
+      <Modified>2018-01-09T23:48:55.498</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\nabil\Source\Repos\test_sql_hololens\test_sql_hololens\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2017-10-25T17:05:58.647</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\nabil\Source\Repos\test_sql_hololens\test_sql_hololens\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-10-25T17:05:58.647</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\nabil\Source\Repos\test_sql_hololens\test_sql_hololens\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-10-25T17:05:58.647</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\nabil\Source\Repos\test_sql_hololens\test_sql_hololens\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-10-25T17:05:58.647</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\nabil\Source\Repos\test_sql_hololens\test_sql_hololens\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-10-25T17:05:58.647</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\nabil\Source\Repos\test_sql_hololens\test_sql_hololens\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-10-25T17:05:58.647</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\nabil\Source\Repos\test_sql_hololens\test_sql_hololens\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-10-25T17:05:58.647</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\nabil\Source\Repos\test_sql_hololens\test_sql_hololens\bin\x86\Debug\test_sql_hololens.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2018-01-05T13:34:30.782</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\bin\x86\Debug\test_sql_hololens.xr.xml">
       <PackagePath>test_sql_hololens.xr.xml</PackagePath>
-      <Modified>2018-01-05T13:52:04.926</Modified>
+      <Modified>2018-01-10T00:31:05.137</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2017-11-10T17:15:50.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\nabil\Source\Repos\test_sql_hololens\test_sql_hololens\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-01-05T13:54:02.790</Modified>
+      <Modified>2018-01-10T00:36:56.705</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\users\nabil\Source\Repos\test_sql_hololens\test_sql_hololens\bin\x86\Debug\Core\test_sql_hololens.exe">
+    <AppxPackagedFile Include="C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\bin\x86\Debug\Core\test_sql_hololens.exe">
       <PackagePath>test_sql_hololens.exe</PackagePath>
-      <Modified>2018-01-05T13:54:04.160</Modified>
+      <Modified>2018-01-10T00:36:57.213</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

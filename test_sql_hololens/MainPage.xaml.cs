@@ -14,6 +14,9 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Security.Cryptography;
+using test_sql_hololens.Page;
+
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -22,40 +25,108 @@ namespace test_sql_hololens
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+
+    public sealed partial class MainPage //: Page
     {
 
-        public class Student
-        {
-            public int Id { get; set; }
-            public string email { get; set; }
-            public string Age { get; set; }
-        }
+        private const int PBKDF2IterCount = 1000; // default for Rfc2898DeriveBytes
+        private const int PBKDF2SubkeyLength = 256 / 8; // 256 bits
+        private const int SaltSize = 128 / 8; // 128 bits
+        //private Account  _account;
+       // private UserAccount _account;
+
+        private bool _isExistingLocalAccount;
 
         public MainPage()
         {
             //this.InitializeComponent();
             this.InitializeComponent();
             //Loaded += MainPage_Loaded;
+        }
+       
 
-
-            List<Student> list = new List<Student>();
-
-            list = Getgame();
-            StudentsList.ItemsSource = list;
+        private void PassportSignInButton_Click(object sender, RoutedEventArgs e)
+        {
+            ErrorMessage.Text = "";
+            SignInPassportAsync();
         }
 
-        public List<Student> Getgame()
+ 
+        private void ForgetButtonTextBlock_OnPointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            const string GetUsersQuery = "select [id_game], [name], [description] from [dbo].[games]";
+            ErrorMessage.Text = "";
+            Frame.Navigate(typeof(Inscription));
+        }
 
-            List<Student> gamelist = new List<Student>();
+
+        private void RegisterButtonTextBlock_OnPointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            ErrorMessage.Text = "";
+            Frame.Navigate(typeof(help));
+        }
+        private async void SignInPassportAsync()
+        {
+            string email = UsernameTextBox.Text;
+            string password = PasswordBox.Password;
+
+            if (HasUser(email, password))
+            {
+
+                Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                localSettings.Values["loginSessionKey"] = email;
+                Frame.Navigate(typeof(Menu));
+            }
+            else
+            {
+                UsernameTextBox.Text = "";
+                PasswordBox.Password = "";
+            }
+
+
+            //if (_isExistingLocalAccount)
+            //{
+            //    if (await MicrosoftPassportHelper.GetPassportAuthenticationMessageAsync(_account))
+            //    {
+            //        Frame.Navigate(typeof(Welcome), _account);
+            //        //Frame.Navigate(typeof(Menu), _account);
+            //    }
+            //}
+            //else if (AuthService.AuthService.Instance.ValidateCredentials(UsernameTextBox.Text, PasswordBox.Password))
+            //{
+            //    Guid userId = AuthService.AuthService.Instance.GetUserId(UsernameTextBox.Text);
+
+            //    if (userId != Guid.Empty)
+            //    {
+            //        bool isSuccessful = await MicrosoftPassportHelper.CreatePassportKeyAsync(userId, UsernameTextBox.Text);
+            //        if (isSuccessful)
+            //        {
+            //            Debug.WriteLine("Successfully signed in with Windows Hello!");
+            //            _account = AuthService.AuthService.Instance.GetUserAccount(userId);
+            //            Frame.Navigate(typeof(Welcome), _account);
+            //        }
+            //        else
+            //        {
+            //            AuthService.AuthService.Instance.PassportRemoveUser(userId);
+
+            //            ErrorMessage.Text = "Account Creation Failed";
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    ErrorMessage.Text = "Invalid Credentials";
+            //}
+        }
+
+        public bool HasUser(string email, string password)
+        {
+            string GetUsersQuery = "SELECT [PasswordHash], [UserName] FROM [dbo].[AspNetUsers] WHERE [Email] = '" + email + "'";
 
             try
             {
-
-                using (SqlConnection conn = new SqlConnection(@"Server=tcp:virtual-deck.database.windows.net,1433;Initial Catalog=VirtualDeckStoreDb;Persist Security Info=False;User ID=admin_virtualdeck;Password=$pass_teamtek2017;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+                using (SqlConnection conn = new SqlConnection((App.Current as App).ConnectionString))
                 {
+                    // Open connection
                     conn.Open();
                     if (conn.State == System.Data.ConnectionState.Open)
                     {
@@ -63,60 +134,89 @@ namespace test_sql_hololens
                         {
                             cmd.CommandText = GetUsersQuery;
                             using (SqlDataReader reader = cmd.ExecuteReader())
-
                             {
-                                // read through all rows
-                                while (reader.Read())
+                                if (reader.Read())
                                 {
-                                    var user = new Student();
-                                    // Get the only column value for each row
-                                    user.Id = reader.GetInt32(0);
-                                    user.email = reader.GetString(1);
-                                    user.Age = reader.GetString(2);
-                                    gamelist.Add(user);
+                                    string hashedPassword = reader.GetString(0);
+                                    if (VerifyHashedPassword(hashedPassword, password))
+                                    {
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        ErrorMessage.Text = "Username or password was incorrect!";
+                                        return false;
+                                    }
+                                }
+                                else
+                                {
+                                    ErrorMessage.Text = "No such account exists!";
                                 }
                             }
                         }
                     }
-
-                    return gamelist;
                 }
             }
             catch (Exception eSql)
             {
                 Debug.WriteLine("Exception: " + eSql.Message);
             }
-            return null;
+            return false;
         }
 
-
-        private List<Student> listOfStudents = new List<Student>();
-
-
-        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        public static bool VerifyHashedPassword(string hashedPassword, string password)
         {
-            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+            if (hashedPassword == null)
+            {
+                return false;
+            }
+            if (password == null)
+            {
+                throw new ArgumentNullException("password");
+            }
+
+            var hashedPasswordBytes = Convert.FromBase64String(hashedPassword);
+
+            // Verify a version 0 (see comment above) text hash.
+
+            if (hashedPasswordBytes.Length != (1 + SaltSize + PBKDF2SubkeyLength) || hashedPasswordBytes[0] != 0x00)
+            {
+                // Wrong length or version header.
+                return false;
+            }
+
+            var salt = new byte[SaltSize];
+            Buffer.BlockCopy(hashedPasswordBytes, 1, salt, 0, SaltSize);
+            var storedSubkey = new byte[PBKDF2SubkeyLength];
+            Buffer.BlockCopy(hashedPasswordBytes, 1 + SaltSize, storedSubkey, 0, PBKDF2SubkeyLength);
+
+            byte[] generatedSubkey;
+            using (var deriveBytes = new Rfc2898DeriveBytes(password, salt, PBKDF2IterCount))
+            {
+                generatedSubkey = deriveBytes.GetBytes(PBKDF2SubkeyLength);
+            }
+            return ByteArraysEqual(storedSubkey, generatedSubkey);
         }
 
-        private void MenuButton1_Click(object sender, RoutedEventArgs e)
+        private static bool ByteArraysEqual(byte[] a, byte[] b)
         {
-            // Frame.Navigate(typeof(Menu));
+            if (ReferenceEquals(a, b))
+            {
+                return true;
+            }
+
+            if (a == null || b == null || a.Length != b.Length)
+            {
+                return false;
+            }
+
+            var areSame = true;
+            for (var i = 0; i < a.Length; i++)
+            {
+                areSame &= (a[i] == b[i]);
+            }
+            return areSame;
         }
 
-        private void MenuButton2_Click(object sender, RoutedEventArgs e)
-        {
-            // Frame.Navigate(typeof(MainPage));
-        }
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            //Frame.Navigate(typeof(Welcome));
-        }
-
-
-        private void Button_Click21(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

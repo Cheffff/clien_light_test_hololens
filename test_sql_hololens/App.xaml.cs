@@ -22,6 +22,13 @@ namespace test_sql_hololens
     /// </summary>
     sealed partial class App : Application
     {
+
+        private string connectionString = @"Server=tcp:virtual-deck.database.windows.net,1433;Initial Catalog=VirtualDeckStoreDb;Persist Security Info=False;User ID=admin_virtualdeck;Password=$pass_teamtek2017;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        public string ConnectionString
+        {
+            get => connectionString; set => connectionString = value;
+        }
+
         /// <summary>
         /// Initialise l'objet d'application de singleton.  Il s'agit de la première ligne du code créé
         /// à être exécutée. Elle correspond donc à l'équivalent logique de main() ou WinMain().

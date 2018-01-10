@@ -8,77 +8,55 @@
     mc:Ignorable="d">
 
 
-    <Grid Background="#FF262626" Margin="68,0,0,0" HorizontalAlignment="Left" Width="890">
+    <Grid Background="#FF262626">
+        <StackPanel Orientation="Vertical" Margin="0,10,0,-10">
+            <TextBlock Text="Login" FontSize="36" Margin="4" TextAlignment="Center" FocusVisualPrimaryBrush="#FFF3F0F0" Foreground="White"/>
 
-        <SplitView x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
-               CompactPaneLength="50" OpenPaneLength="150" Margin="10,8,-25,-2">
-            <SplitView.Pane>
-                <StackPanel Background="Gray" Margin="-2,-2,0.4,0.4" RenderTransformOrigin="0.403,0.5">
-                    <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
-                    Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
+            <TextBlock x:Name="ErrorMessage" Text="" FontSize="20" Margin="4" Foreground="Red" TextAlignment="Center"/>
 
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton1" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;"
-                    Width="50" Height="50" Background="Transparent" Click="MenuButton1_Click"/>
-                        <TextBlock Text="Menu" FontSize="20" VerticalAlignment="Center" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton2" FontFamily="Segoe MDL2 Assets" Content="&#xE13D;"
-                        Width="50" Height="50" Background="Transparent" Click="MenuButton2_Click"/>
-                        <TextBlock Text="Compte" FontSize="18" VerticalAlignment="Center" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE115;"
-                        Width="50" Height="50" Background="Transparent"/>
-                        <TextBlock Text="Parametre" FontSize="18" VerticalAlignment="Center" />
-                    </StackPanel>
+            <TextBlock Text="Entrez vos informations" Margin="0,0,0,20"
+               TextWrapping="Wrap" Width="300"
+               TextAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="White" />
 
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton4" FontFamily="Segoe MDL2 Assets" Content="&#xE113;"
-                        Width="50" Height="50" Background="Transparent"/>
-                        <TextBlock Text="Favoris" FontSize="18" VerticalAlignment="Center" />
-                    </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <!-- Username Input -->
+                <TextBlock x:Name="UserNameTextBlock" Text="Identifiant: "
+             FontSize="20" Margin="4" Width="133" Foreground="White"/>
+                <TextBox x:Name="UsernameTextBox" PlaceholderText="Identifiant" Width="199" Margin="4" Background="#66FFFFFF" Foreground="White" FocusVisualPrimaryBrush="White" BorderBrush="#66FFFFFF"/>
+            </StackPanel>
 
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton5" FontFamily="Segoe MDL2 Assets" Content="&#xE11A;"
-                        Width="50" Height="50" Background="Transparent"/>
-                        <TextBlock Text="Chercher" FontSize="18" VerticalAlignment="Center" />
-                    </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <!-- Password Input -->
+                <TextBlock x:Name="PasswordTextBlock" Text="Mot de passe: "
+             FontSize="20" Margin="4" Width="132" Foreground="White"/>
+                <PasswordBox x:Name="PasswordBox" PlaceholderText="Mot de passe" Width="200" Margin="4" FocusVisualPrimaryBrush="White"/>
+            </StackPanel>
 
+            <Button x:Name="PassportSignInButton" Content="Connexion" Background="DodgerBlue" Foreground="White"
+        Click="PassportSignInButton_Click" Width="100" HorizontalAlignment="Center" Margin="130,20"/>
 
+            <TextBlock Text="Pas de compte ?"
+                TextAlignment="Center" VerticalAlignment="Center" FontSize="16" FocusVisualPrimaryBrush="White" Foreground="White"/>
+            <TextBlock x:Name="RegisterButtonTextBlock" Text="Inscrivez-vous"
+               PointerPressed="RegisterButtonTextBlock_OnPointerPressed"
+               Foreground="DodgerBlue"
+               TextAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+            <TextBlock x:Name="ForgetButtonTextBlock_Copy" Text="Mots de passe oublié "
+                PointerPressed="ForgetButtonTextBlock_OnPointerPressed"
+                Foreground="DodgerBlue"
+                TextAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
 
-                </StackPanel>
-            </SplitView.Pane>
+            <Border x:Name="PassportStatus" Background="#FF262626"
+               Margin="0,20" Height="78">
+                <TextBlock x:Name="PassportStatusText" Text="Connexion établie "
+             Margin="4" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="#FF262626"/>
+            </Border>
 
+            <TextBlock x:Name="LoginExplaination" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" 
+        Text="Information: Bienvenue sur le Client Virtual Deck 
+        " Foreground="White"/>
 
-            <ListView x:Name="StudentsList" Margin="60,199,0.2,0" Foreground="DarkGray">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding email}" 
-                           Margin="20,0,20,8"
-                           FontSize="24" 
-                           FontStyle="Italic" 
-                           FontWeight="SemiBold"
-                           Foreground="White" />
-                            <TextBlock Text="{Binding Age}" 
-                           Margin="20,0,20,8"
-                           FontSize="16"
-                           Foreground="DarkGray" 
-                           Opacity="0.8" />
-                            <Button 
-                                Margin="20,0,20,8" 
-                                Opacity="0.1"
-                                Click="Button_Click21"
-                                Foreground="Black"
-                                Tag="{Binding Id}"
-                               >
-
-                            </Button>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </SplitView>
+        </StackPanel>
     </Grid>
+
 </Page>

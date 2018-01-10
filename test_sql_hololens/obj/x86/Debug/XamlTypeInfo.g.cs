@@ -180,15 +180,27 @@ namespace test_sql_hololens.test_sql_hololens_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[3];
+            _typeNameTable = new string[9];
             _typeNameTable[0] = "test_sql_hololens.MainPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[3] = "test_sql_hololens.Page.Compte";
+            _typeNameTable[4] = "test_sql_hololens.Page.Game_detail";
+            _typeNameTable[5] = "test_sql_hololens.Page.help";
+            _typeNameTable[6] = "test_sql_hololens.Page.Inscription";
+            _typeNameTable[7] = "test_sql_hololens.Page.List_game";
+            _typeNameTable[8] = "test_sql_hololens.Page.Menu";
 
-            _typeTable = new global::System.Type[3];
+            _typeTable = new global::System.Type[9];
             _typeTable[0] = typeof(global::test_sql_hololens.MainPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[3] = typeof(global::test_sql_hololens.Page.Compte);
+            _typeTable[4] = typeof(global::test_sql_hololens.Page.Game_detail);
+            _typeTable[5] = typeof(global::test_sql_hololens.Page.help);
+            _typeTable[6] = typeof(global::test_sql_hololens.Page.Inscription);
+            _typeTable[7] = typeof(global::test_sql_hololens.Page.List_game);
+            _typeTable[8] = typeof(global::test_sql_hololens.Page.Menu);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -224,6 +236,12 @@ namespace test_sql_hololens.test_sql_hololens_XamlTypeInfo
         }
 
         private object Activate_0_MainPage() { return new global::test_sql_hololens.MainPage(); }
+        private object Activate_3_Compte() { return new global::test_sql_hololens.Page.Compte(); }
+        private object Activate_4_Game_detail() { return new global::test_sql_hololens.Page.Game_detail(); }
+        private object Activate_5_help() { return new global::test_sql_hololens.Page.help(); }
+        private object Activate_6_Inscription() { return new global::test_sql_hololens.Page.Inscription(); }
+        private object Activate_7_List_game() { return new global::test_sql_hololens.Page.List_game(); }
+        private object Activate_8_Menu() { return new global::test_sql_hololens.Page.Menu(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -248,6 +266,48 @@ namespace test_sql_hololens.test_sql_hololens_XamlTypeInfo
 
             case 2:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::test_sql_hololens.test_sql_hololens_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 3:   //  test_sql_hololens.Page.Compte
+                userType = new global::test_sql_hololens.test_sql_hololens_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_3_Compte;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  test_sql_hololens.Page.Game_detail
+                userType = new global::test_sql_hololens.test_sql_hololens_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_4_Game_detail;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 5:   //  test_sql_hololens.Page.help
+                userType = new global::test_sql_hololens.test_sql_hololens_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_5_help;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 6:   //  test_sql_hololens.Page.Inscription
+                userType = new global::test_sql_hololens.test_sql_hololens_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_6_Inscription;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 7:   //  test_sql_hololens.Page.List_game
+                userType = new global::test_sql_hololens.test_sql_hololens_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_7_List_game;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 8:   //  test_sql_hololens.Page.Menu
+                userType = new global::test_sql_hololens.test_sql_hololens_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_8_Menu;
+                userType.SetIsLocalType();
+                xamlType = userType;
                 break;
             }
             return xamlType;

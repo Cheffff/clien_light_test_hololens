@@ -1,1 +1,1 @@
-C:\Users\Nabil\Source\Repos\test_sql_hololens\test_sql_hololens\test_sql_hololens.csproj;x86
+C:\Users\Nabil\Desktop\clien_light_test_hololens\test_sql_hololens\test_sql_hololens.csproj;x86

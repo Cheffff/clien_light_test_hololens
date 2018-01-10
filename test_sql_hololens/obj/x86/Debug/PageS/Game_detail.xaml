@@ -1,0 +1,87 @@
+﻿<Page
+    x:Class="test_sql_hololens.Page.Game_detail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:test_sql_hololens.Page"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,-530,0" HorizontalAlignment="Left" Width="890">
+
+        <SplitView x:ConnectionId='1' x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
+               CompactPaneLength="50" OpenPaneLength="150" Margin="0,0,-23,0">
+            <SplitView.Pane>
+                <StackPanel Background="Gray">
+                    <Button x:ConnectionId='2' x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
+                    Width="50" Height="50" Background="Transparent"                              />
+
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:ConnectionId='7' x:Name="MenuButton1" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;"
+                    Width="50" Height="50" Background="Transparent"                          />
+                        <TextBlock Text="Menu" FontSize="20" VerticalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:ConnectionId='6' x:Name="MenuButton2" FontFamily="Segoe MDL2 Assets" Content="&#xE13D;"
+                        Width="50" Height="50" Background="Transparent"                          />
+                        <TextBlock Text="Compte" FontSize="18" VerticalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:ConnectionId='5' x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE115;"
+                        Width="50" Height="50" Background="Transparent"/>
+                        <TextBlock Text="Parametre" FontSize="18" VerticalAlignment="Center" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:ConnectionId='4' x:Name="MenuButton4" FontFamily="Segoe MDL2 Assets" Content="&#xE113;"
+                        Width="50" Height="50" Background="Transparent"/>
+                        <TextBlock Text="Favoris" FontSize="18" VerticalAlignment="Center" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:ConnectionId='3' x:Name="MenuButton5" FontFamily="Segoe MDL2 Assets" Content="&#xE11A;"
+                        Width="50" Height="50" Background="Transparent"/>
+                        <TextBlock Text="Chercher" FontSize="18" VerticalAlignment="Center" />
+                    </StackPanel>
+
+
+
+                </StackPanel>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid Margin="0,0,70,0" Background="Silver">
+                    <TextBlock x:ConnectionId='8' HorizontalAlignment="Left" Margin="56,149,0,0" Name="title" Text="Nom du jeu" FontSize="42" TextWrapping="Wrap" VerticalAlignment="Top" Height="60" Width="337" Foreground="DarkBlue"/>
+                    <Button x:ConnectionId='9' FontFamily="Segoe MDL2 Assets" Content="&#xE896;" Background="Blue" 
+                            Foreground="White" FontSize="28" HorizontalAlignment="Left" 
+                            x:Name="btnDownload" Margin="674,232,0,0"                          
+                            VerticalAlignment="Top" Width="90" Height="45"/>
+                    <ProgressBar x:ConnectionId='10' HorizontalAlignment="Left" Height="22" Margin="50,254,0,0" 
+                                 VerticalAlignment="Top" Width="477" Background="#33FFFFFF" 
+                                 x:Name="ProgressBarDownload"
+                                 FocusVisualPrimaryBrush="Red"/>
+                    <TextBlock x:ConnectionId='11' HorizontalAlignment="Left" Margin="561,254,0,0" 
+                               Text="%" TextWrapping="Wrap" VerticalAlignment="Top" 
+                               x:Name="txtProgress"
+                               RenderTransformOrigin="0.163,0.465"/>
+                    <TextBlock x:ConnectionId='12' HorizontalAlignment="Left" Margin="66,300,0,0" Text="?"
+                               TextWrapping="Wrap" VerticalAlignment="Top" 
+                               x:Name="txtStatus"
+                               RenderTransformOrigin="-0.063,0.185"/>
+                    <Button x:ConnectionId='13' HorizontalAlignment="Left" Margin="596,239,0,0" 
+                            x:Name="btnPauseResume" Content="Pause"                             
+                            VerticalAlignment="Top" RenderTransformOrigin="0.28,0.027" Width="59"/>
+                    <Button x:ConnectionId='14'  HorizontalAlignment="Left" Margin="597,284,0,0" VerticalAlignment="Top"
+                            x:Name="btnCancel" Content="Annulez"                         />
+
+                    <Button x:ConnectionId='15'  HorizontalAlignment="Left" Margin="597,324,0,0" VerticalAlignment="Top"
+                             Content="OP"                    />
+
+
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
+
+    </Grid>
+
+</Page>
+
+
